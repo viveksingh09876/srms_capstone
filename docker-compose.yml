@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  php:
+    build: .
+    container_name: srms_php
+    ports:
+      - "8080:80"
+    volumes:
+      - ./public:/var/www/html
+      - ./config:/var/www/config
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:8.0
+    container_name: srms_mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: srms_db
+      MYSQL_USER: srms_user
+      MYSQL_PASSWORD: srms_pass
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./sql:/docker-entrypoint-initdb.d
+
+volumes:
+  mysql_data:

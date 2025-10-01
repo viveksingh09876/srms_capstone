@@ -1,0 +1,30 @@
+# PHP / Web Server
+*.log
+*.tmp
+.env  # If you add environment files
+error_log
+cache/
+
+# XAMPP / Local Server (if in htdocs)
+/xampp/
+htdocs/
+*.pid
+
+# Database (never commit real DB files)
+*.sql.backup
+*.dump
+database.sql
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS / Temp
+Thumbs.db
+.DS_Store
+Desktop.ini
+
+# Sensitive (add your config if it has real passwords)
+config/database.php  # Uncomment if you want to ignore real DB creds; use placeholders in repo
